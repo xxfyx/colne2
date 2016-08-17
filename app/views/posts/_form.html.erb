@@ -1,0 +1,15 @@
+
+<%= simple_form_for(@post, html: { class: 'form-horizontal', multipart: true }) do |f| %>
+  <%= f.input :title %>
+  <%= f.input :description %>
+
+	  <%= f.simple_fields_for :pictures do |picture| %>
+	    <%= picture.input :image %>
+	  <% end %>
+
+  <%= f.input :price %>
+  <%= f.input :city %>
+  <%= f.input :phone %>
+
+  <%= f.button :submit %>
+<% end %>
