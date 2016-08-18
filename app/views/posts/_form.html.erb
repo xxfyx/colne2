@@ -1,10 +1,11 @@
 
-<%= simple_form_for(@post, html: { class: 'form-horizontal', multipart: true }) do |f| %>
+<%= simple_form_for @post, html: { class: 'form-horizontal', multipart: true } do |f| %>
   <%= f.input :title %>
   <%= f.input :description %>
 
-	  <%= f.simple_fields_for :pictures do |picture| %>
-	    <%= picture.input :image %>
+	  <%= f.simple_fields_for :pictures do |builder| %>
+      <%= builder.input :image %>
+      <!-- <%= builder.input :image, :input_html => { :multiple => true } %> -->
 	  <% end %>
 
   <%= f.input :price %>

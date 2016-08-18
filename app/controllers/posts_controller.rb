@@ -7,6 +7,8 @@ class PostsController < ApplicationController
 
   def show  
    @PostOwner = User.find_by_id(@post.user_id)
+   # @pospics = Picture.where(post_id: @post)
+   @pospics = @post.pictures
   end
 
   def myposts
@@ -40,15 +42,17 @@ class PostsController < ApplicationController
 
   def new
     @post = current_user.posts.build
-    @post.pictures.build
+    3.times {@post.pictures.build}
   end
 
   def create
     @post = current_user.posts.build(post_params)
+
     if @post.save
+
       redirect_to root_path
     else
-      render 'new' 
+      redirect_to new_post_path 
     end     
   end
   private

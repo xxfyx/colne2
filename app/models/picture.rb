@@ -1,5 +1,5 @@
 class Picture < ApplicationRecord
-  belongs_to :post
-  has_attached_file :image, styles: {thumb: "150x150"}
-      validates_attachment :image, content_type: { content_type: ["image/jpg", "image/jpeg", "image/png", "image/gif"] }
+  belongs_to :post,inverse_of: :pictures
+  has_attached_file :image, styles: {medium: "700x450", thumb: "350x250"}
+    validates_attachment_content_type :image, :content_type => ["image/jpg", "image/jpeg", "image/png", "image/gif"]
 end
