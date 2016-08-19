@@ -2,6 +2,10 @@
 	<%= link_to post do %>
 		<div class="row padding-top-15">
 		            <div class="col-md-3"><span class="badge"></span>
+
+
+		            <!-- i want the image of each post to be shown here  -->
+		            
 		                    <img class="img-responsive" src="http://placehold.it/350x250" alt="">
 
 
@@ -10,6 +14,7 @@
 		                <h3 class="pull-right"><%= post.price %> DH</h3>
 		                <h3><%= post.title %></h3>
 		                <h4><%= post.city %></h4>
+		                <h4><%= post.id %></h4>
 		            </div>
 		</div>
   <% end %>
