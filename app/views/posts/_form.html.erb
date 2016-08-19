@@ -1,16 +1,40 @@
 
-<%= simple_form_for @post, html: { class: 'form-horizontal', multipart: true } do |f| %>
-  <%= f.input :title %>
-  <%= f.input :description %>
+<%= form_for @post, html: { class: 'form-horizontal', multipart: true } do |f| %>
 
-	  <%= f.simple_fields_for :pictures do |builder| %>
-      <%= builder.input :image %>
-      <!-- <%= builder.input :image, :input_html => { :multiple => true } %> -->
-	  <% end %>
+<div class="form-group">
+  <%= f.label :title %>
+   <%= f.text_field :title, :class => 'form-control' %>
+</div>
 
-  <%= f.input :price %>
-  <%= f.input :city %>
-  <%= f.input :phone %>
+<div class="form-group">
+  <%= f.label :description, :class => 'control-label' %>
+  <%= f.text_field :description, :class => 'form-control' %>
 
-  <%= f.button :submit %>
+</div>
+
+<div class="form-group">
+   <%= f.label :price, :class => 'control-label' %>
+   <%= f.text_field :price, :class => 'form-control' %>
+</div>
+
+<div class="form-group">
+  <%= f.label :city, :class => 'control-label' %>
+   <%= f.text_field :city, :class => 'form-control' %>
+</div>
+
+<div class="form-group">
+  <%= f.label :phone, :class => 'control-label' %>
+   <%= f.text_field :phone, :class => 'form-control' %>
+</div>
+
+<div class="form-group">
+    <%= f.fields_for :pictures do |builder| %>
+      <% if builder.object.new_record? %>
+        <%= f.label :pictures, :class => 'control-label' %>
+        <%= file_field_tag "images[]", type: :file, multiple: true %>
+      <% end %>
+    <% end %>
+</div>
+
+  <%= f.submit nil, :class => 'btn btn-primary' %>
 <% end %>

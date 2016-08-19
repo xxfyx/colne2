@@ -1,0 +1,46 @@
+<div id="carousel-example-generic" class="carousel slide" data-ride="carousel" data-interval="false">
+
+
+
+  <!-- Indicators -->
+  <ol class="carousel-indicators">
+           <% @count = 0 %>
+       <% @postpics.each_with_index do |indicator, i|%>
+         <% if i == 0 %>
+              <%= tag("li", data: {target: '#carousel-example-generic', slide_to: '0'}, class: "active") %>
+              <% else %>
+              <%= tag("li", data: {target: '#carousel-example-generic', slide_to: @count += 1}) %>
+         <% end %>
+
+       <% end %>
+  </ol>
+
+
+  <!-- Wrapper for slides -->
+  <div class="carousel-inner" role="listbox">
+       <% @postpics.each_with_index do |pic, i| %>
+           <% if i == 0 %>
+          <div class="item active">
+            <%= image_tag pic.image.url(:medium) %>
+          </div>
+          <% else %>
+          <div class="item">
+            <%= image_tag pic.image.url(:medium) %>
+          </div>
+        <% end %>
+      <% end %>
+  </div>
+  
+
+
+  <!-- Controls -->
+  <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+
+</div>
