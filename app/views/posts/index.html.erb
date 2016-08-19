@@ -4,9 +4,14 @@
 		            <div class="col-md-3"><span class="badge"></span>
 
 
-		            <!-- i want the image of each post to be shown here  -->
-		            
-		                    <img class="img-responsive" src="http://placehold.it/350x250" alt="">
+					<% post.pictures.each_with_index do |picture, i|%>
+						<% if i == 0 %>
+						<%= image_tag picture.image.url(:thumb), class: "img-responsive" %> 
+						<% end %>
+					<% end %>
+					            
+		                   
+
 
 
 		            </div>
