@@ -8,13 +8,13 @@
 
 <div class="form-group">
   <%= f.label :description, :class => 'control-label' %>
-  <%= f.text_field :description, :class => 'form-control' %>
+  <%= f.text_area :description, :class => 'form-control' %>
 
 </div>
 
 <div class="form-group">
-   <%= f.label :price, :class => 'control-label' %>
-   <%= f.text_field :price, :class => 'form-control' %>
+   <%= f.label  :price, :class => 'control-label' %>
+   <%= f.number_field  :price, :class => 'form-control' %>
 </div>
 
 <div class="form-group">
@@ -24,7 +24,7 @@
 
 <div class="form-group">
   <%= f.label :phone, :class => 'control-label' %>
-   <%= f.text_field :phone, :class => 'form-control' %>
+   <%= f.telephone_field :phone, :class => 'form-control' %>
 </div>
 
 <div class="form-group">
@@ -32,6 +32,8 @@
       <% if builder.object.new_record? %>
         <%= f.label :pictures, :class => 'control-label' %>
         <%= file_field_tag "images[]", type: :file, multiple: true %>
+        <% else %>
+
       <% end %>
     <% end %>
 </div>

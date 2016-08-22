@@ -24,3 +24,31 @@
     margin: -4px 164px; 
        }
 .width{width: 100%;}
+.carousel {
+    margin: 0 auto;
+    position: relative;
+    max-width: 700px;
+}
+.carousel-inner > .item > img, .carousel-inner > .item > a > img {
+    display: block;
+    max-width: 100%;
+    width: 100%;
+    height: auto;
+    line-height: 1;
+}
+.carousel-control.left {
+    background-image: none;
+}
+.carousel-control.right {
+    background-image: none;
+}
+.create {
+    padding: 15px;
+    margin-top: 32px;
+    border-radius: 0;
+    color: #FFF;
+    font-size: x-large;
+}
+a:hover, a:focus {
+    text-decoration: none;
+}

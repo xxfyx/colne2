@@ -1,22 +1,43 @@
-<% @myposts.each do |post| %>
-	<%= link_to post do %>
-		<div class="row padding-top-15">
-		            <div class="col-md-3"><span class="badge">0</span>
-		                    <img class="img-responsive" src="http://placehold.it/350x250" alt="">
-		            </div>
-		            <div class="col-md-9">
-		                <h3 class="pull-right"><%= post.price %> DH</h3>
-		                <h3><%= post.title %></h3>
-		                <h4><%= post.city %></h4>
-		            </div>
-		            <div class="btn-group" role="group" aria-label="...">
-					  <%= link_to edit_post_path(post) do%>
-					  <button type="button" class="btn btn-primary">edit</button>
-					  <%end%>
-					  <%= link_to post,  method: :delete, data: { confirm: 'Are you sure?' } do %>
-					  <button type="button" class="btn btn-danger">delete</button>
-					  <% end %>
-					</div>
-		</div>
+<% if @myposts.present? %>
+	<% @myposts.each do |post| %>
+		<%= link_to post do %>
+			<div class="row padding-top-15">
+
+			            <div class="col-md-3"><span class="badge"><%= post.pictures.count %></span>
+			            <% if post.pictures.present? %>
+			                    <%= image_tag post.pictures.first.image.url(:thumb), class: "img-responsive" %> 
+			                <% else %>
+							    <%= image_tag "default_image.png", class: "img-responsive"%>
+			            <% end %>
+			            </div>
+
+			            <div class="col-md-9">
+			                <h3 class="pull-right"><%= post.price %> DH</h3>
+			                <h3><%= post.title %></h3>
+			                <h4><%= post.city %></h4>
+			            </div>
+
+			            <div class="btn-group" role="group" aria-label="...">
+				  <%= link_to edit_post_path(post) do%>
+				  <button type="button" class="btn btn-primary">edit</button>
+				  <%end%>
+				  <%= link_to post,  method: :delete, data: { confirm: 'Are you sure?' } do %>
+				  <button type="button" class="btn btn-danger">delete</button>
+				  <% end %>
+				</div>
+
+			</div>
+		<% end %>
 	<% end %>
+<% else %>
+	<h2 class="text-center">You Have 0 posts </h2>
+
+	  <div class="text-center">
+	  <%=link_to  new_post_path do %>
+		 <button type="button" class="btn btn-lg btn-success create" >
+		    Create one now !
+		  </button>
+	  <% end %>
+	  </div>
+
 <% end %>

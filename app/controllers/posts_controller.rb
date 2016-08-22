@@ -1,9 +1,17 @@
 class PostsController < ApplicationController
   before_action :find_post, only: [:show, :edit, :update, :destroy]
-  skip_before_action :authenticate_user!, only: [:index, :show]
+  skip_before_action :authenticate_user!, only: [:index, :show, :search]
   def index
      @posts = Post.all.order("created_at DESC")
 
+  end
+  
+  def search
+    query = params[:search].presence || "*"
+        @posts = Post.search(
+         query,{
+         order: {created_at: :desc}
+         })
   end
 
   def show  
@@ -15,7 +23,7 @@ class PostsController < ApplicationController
   def myposts
     @myposts = Post.where( :user_id => current_user.id ).order("created_at DESC")
   end
-  
+
 
   def new
     @post = current_user.posts.build
@@ -51,7 +59,11 @@ class PostsController < ApplicationController
 
 
   def update
-    
+    if @post.update(post_params)
+      redirect_to @post
+      else
+        render edit
+    end
   end
 
   def destroy

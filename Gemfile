@@ -11,6 +11,7 @@ gem 'bootstrap-sass', '~> 3.3', '>= 3.3.7'
 gem 'twitter-bootstrap-rails', '~> 3.2', '>= 3.2.2'
 gem 'devise-bootstrap-views', '~> 0.0.8'
 gem 'simple_form'
+gem 'searchkick', '~> 1.3', '>= 1.3.3'
 # Use Puma as the app server
 gem 'puma', '~> 3.0'
 # Use SCSS for stylesheets

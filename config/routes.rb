@@ -4,6 +4,7 @@ Rails.application.routes.draw do
    resources :posts do
      	collection do
    get 'myposts'
+   get 'search'
     end
    end
   root 'posts#index'
