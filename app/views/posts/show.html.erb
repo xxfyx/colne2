@@ -1,6 +1,5 @@
 <div class="clearfix">
     <h2  class="col-md-6"><%= @post.title %></h2>
-    <h3 class="col-md-6 col-md-push-4 "><%= @post.price %> DH</h3>
 </div>
 
 <%if @postpics.present? %>
@@ -15,4 +14,5 @@
   <div class="col-md-6">
     <h2><%= @PostOwner.name %> </h2>
     <p ><%= @PostOwner.email %></p>
+    <p ><%= @post.phone %></p>
   </div>

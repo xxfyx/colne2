@@ -15,3 +15,13 @@
 //= require twitter/bootstrap
 //= require turbolinks
 //= require_tree .
+
+
+$('input#images_').change(function(){
+    var files = $(this)[0].files;
+    if(files.length > 3){
+        alert("you can select max 3 files.");
+    }else{
+        alert("correct, you have selected less than 10 files");
+    }
+});

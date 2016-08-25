@@ -1,9 +1,13 @@
-
 <%= form_for @post, html: { class: 'form-horizontal', multipart: true } do |f| %>
 
 <div class="form-group">
   <%= f.label :title %>
    <%= f.text_field :title, :class => 'form-control' %>
+</div>
+
+<div class="form-group">
+  <%= f.label :category %>
+   <%= collection_select(:post, :category_id, Category.all, :id, :name, {:prompt=>true},{class: "form-control"}) %>
 </div>
 
 <div class="form-group">
@@ -17,9 +21,10 @@
    <%= f.number_field  :price, :class => 'form-control' %>
 </div>
 
+
 <div class="form-group">
-  <%= f.label :city, :class => 'control-label' %>
-   <%= f.text_field :city, :class => 'form-control' %>
+  <%= f.label :city %>
+   <%= collection_select(:post, :city_id, City.all, :id, :name, {:prompt=>true},{class: "form-control"}) %>
 </div>
 
 <div class="form-group">
@@ -32,9 +37,7 @@
       <% if builder.object.new_record? %>
         <%= f.label :pictures, :class => 'control-label' %>
         <%= file_field_tag "images[]", type: :file, multiple: true %>
-        <% else %>
-
-      <% end %>
+          <% end %>
     <% end %>
 </div>
 

@@ -2,7 +2,7 @@ class PostsController < ApplicationController
   before_action :find_post, only: [:show, :edit, :update, :destroy]
   skip_before_action :authenticate_user!, only: [:index, :show, :search]
   def index
-     @posts = Post.all.order("created_at DESC")
+     @posts = Post.all.order("created_at DESC").paginate(:page => params[:page], :per_page => 4)
 
   end
   
@@ -10,8 +10,8 @@ class PostsController < ApplicationController
     query = params[:search].presence || "*"
         @posts = Post.search(
          query,{
-         order: {created_at: :desc}
-         })
+         order: {created_at: :desc},
+         page: params[:page], per_page: 5})
   end
 
   def show  
@@ -28,13 +28,15 @@ class PostsController < ApplicationController
   def new
     @post = current_user.posts.build
     @post.pictures.build
+    
   end
 
   def create
 
     @post = current_user.posts.build(post_params)
+    @post.category_id = params[:post][:category_id]
+    @post.city_id = params[:post][:city_id]
 
-     
     if @post.save
        if params[:images]
         params[:images].each { |image|
@@ -45,7 +47,9 @@ class PostsController < ApplicationController
     else
       redirect_to new_post_path 
     end     
+
   end
+
 
   def edit
     if @post.user_id == current_user.id
@@ -59,10 +63,11 @@ class PostsController < ApplicationController
 
 
   def update
+    @post.category_id = params[:category_id]
     if @post.update(post_params)
       redirect_to @post
       else
-        render edit
+        redirect_to root_path
     end
   end
 
@@ -77,7 +82,7 @@ class PostsController < ApplicationController
   private
 
   def post_params
-       params.require(:post).permit( :title, :price, :description, :phone, :city, pictures_attributes: [:image] )
+       params.require(:post).permit( :title, :price, :description, :phone, :city_id, :category_id, pictures_attributes: [:image] )
   end
 
   def find_post
