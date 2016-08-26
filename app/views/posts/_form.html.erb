@@ -35,7 +35,7 @@
 <div class="form-group">
     <%= f.fields_for :pictures do |builder| %>
       <% if builder.object.new_record? %>
-        <%= f.label :pictures, :class => 'control-label' %>
+        <%= f.label :pictures, "images (only 6 images)", :class => 'control-label' %>
         <%= file_field_tag "images[]", type: :file, multiple: true %>
           <% end %>
     <% end %>

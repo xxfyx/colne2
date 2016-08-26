@@ -1,20 +1,21 @@
+<div class=" col-lg-12 bord">
 <% if @myposts.present? %>
 	<% @myposts.each do |post| %>
 		<%= link_to post do %>
 			<div class="row padding-top-15">
 
-			            <div class="col-md-3"><span class="badge"><%= post.pictures.count %></span>
+			            <div class="col-xs-6 col-md-3 imgethumbwarp"><span class="badge"><%= post.pictures.count %></span>
 			            <% if post.pictures.present? %>
-			                    <%= image_tag post.pictures.first.image.url(:thumb), class: "img-responsive" %> 
+			                    <%= image_tag post.pictures.first.image.url(:thumb), class: "imgethumb" %> 
 			                <% else %>
-							    <%= image_tag "default_image.png", class: "img-responsive"%>
+							    <%= image_tag "default_image.png", class: "imgethumb"%>
 			            <% end %>
 			            </div>
 
 			            <div class="col-md-9">
-			                <h3 class="pull-right"><%= post.price %> DH</h3>
-			                <h3><%= post.title %></h3>
-			                <h4><%= post.city.name %></h4>
+			                <p class="lead pull-right"><%= post.price %> DH</p>
+			                <p class="lead"><%= post.title %></p>
+			                <p><%= post.city.name %></p>
 			            </div>
 
 			            <div class="btn-group" role="group" aria-label="...">
@@ -41,3 +42,7 @@
 	  </div>
 
 <% end %>
+</div>
+<div class="text-center">
+<%= will_paginate @myposts, renderer: BootstrapPagination::Rails, previous_label: h("back"), next_label: h("next") %>
+</div>

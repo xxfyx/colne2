@@ -2,16 +2,16 @@ class PostsController < ApplicationController
   before_action :find_post, only: [:show, :edit, :update, :destroy]
   skip_before_action :authenticate_user!, only: [:index, :show, :search]
   def index
-     @posts = Post.all.order("created_at DESC").paginate(:page => params[:page], :per_page => 4)
+     @posts = Post.all.order("created_at DESC").paginate(:page => params[:page], :per_page => 7)
 
   end
   
   def search
     query = params[:search].presence || "*"
         @posts = Post.search(
-         query,{
-         order: {created_at: :desc},
-         page: params[:page], per_page: 5})
+                               query,{
+                               order: {created_at: :desc},
+                               page: params[:page], per_page: 5})
   end
 
   def show  
@@ -21,7 +21,7 @@ class PostsController < ApplicationController
   end
 
   def myposts
-    @myposts = Post.where( :user_id => current_user.id ).order("created_at DESC")
+    @myposts = Post.where( :user_id => current_user.id ).order("created_at DESC").paginate(:page => params[:page], :per_page => 4)
   end
 
 
@@ -52,6 +52,7 @@ class PostsController < ApplicationController
 
 
   def edit
+    @post
     if @post.user_id == current_user.id
         render 'edit'
       else
