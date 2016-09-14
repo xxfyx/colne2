@@ -2,7 +2,7 @@ class PostsController < ApplicationController
   before_action :find_post, only: [:show, :edit, :update, :destroy]
   skip_before_action :authenticate_user!, only: [:index, :show, :search]
   def index
-     @posts = Post.all.order("created_at DESC").paginate(:page => params[:page], :per_page => 7)
+     @posts = Post.all.order("created_at DESC").paginate(:page => params[:page], :per_page => 6)
 
   end
   
@@ -64,8 +64,9 @@ class PostsController < ApplicationController
 
 
   def update
+    if @post.user_id == current_user.id
     @post.category_id = params[:category_id]
-    if @post.update(post_params)
+    @post.update(post_params)
       redirect_to @post
       else
         redirect_to root_path
@@ -73,10 +74,11 @@ class PostsController < ApplicationController
   end
 
   def destroy
-    if @post.destroy
-      redirect_to myposts_posts_path
+     if @post.user_id == current_user.id
+        @post.destroy
+        redirect_to myposts_posts_path
     else
-      render 'show'
+     redirect_to root_path
     end
   end
 

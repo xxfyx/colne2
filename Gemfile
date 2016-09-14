@@ -14,6 +14,7 @@ gem 'simple_form'
 gem 'searchkick', '~> 1.3', '>= 1.3.3'
 gem 'will_paginate', '~> 3.1'
 gem 'will_paginate-bootstrap', '~> 1.0', '>= 1.0.1'
+gem 'bootstrap-material-design'
 # Use Puma as the app server
 gem 'puma', '~> 3.0'
 # Use SCSS for stylesheets
