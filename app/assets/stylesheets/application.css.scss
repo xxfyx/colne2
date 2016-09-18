@@ -1,29 +1,36 @@
-/*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
- * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
- * files in this directory. Styles in this file should be added after the last require_* statement.
- * It is generally better to create a new file per style scope.
- *
- *= require devise_bootstrap_views
- *= require bootstrap_and_overrides
- *= require_tree .
- *= require_self
- */
  @import "bootstrap-sprockets";
  @import "bootstrap";
+ @import "font-awesome";
+
+body {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #333333;
+    background-color: #fbfbfb;}
+
+    .navbar-brand span{
+        color:#f44336;
+    }
+.navbar-default {
+    background-color: #ffffff;
+    border-bottom: 3px solid #F44336;
+}
+.btn-custom, .btn-custom:hover, .btn-custom:focus, .btn-custom.focus {
+
+    color: #fff;
+    background-color: #f44336;
+    border-color: #f44336;
+    font-weight: 600;
+}
  .bord {
-        border-style: solid;
+    border-style: solid;
     border-color: #cfcfcf;
     border-width: 0px 1px 1px 1px;
+    background-color: white;
  }
 .padding-top-15{
-border-top: 1px solid #cccccc;
+    border-top: 1px solid #cccccc;
     padding: 8px 0;}
 .badge {
     position: absolute;
