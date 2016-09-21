@@ -25,15 +25,6 @@
           <%end%>
           </ul>
 
-
-         <%= form_tag search_posts_path, method: :get, class: "navbar-form navbar-right", role: "search" do %>
-         <div class="form-group">
-              <%= text_field_tag :search, params[:search], class: "form-control" %>
-        </div>
-              <%= submit_tag "Search", name: nil, class: "btn btn-default" %>
-          <% end %>
-
-
         </div>
       </div>
   </nav>

@@ -2,34 +2,34 @@
 
 <div class="form-group">
   <%= f.label :title %>
-   <%= f.text_field :title, :class => 'form-control' %>
+   <%= f.text_field :title, :class => 'form-control', :required => true %>
 </div>
 
 <div class="form-group">
   <%= f.label :category %>
-   <%= collection_select(:post, :category_id, Category.all, :id, :name, {:prompt=>true},{class: "form-control"}) %>
+   <%= collection_select(:post, :category_id, Category.all, :id, :name, {:prompt=>true},{class: "form-control", :required => true}) %>
 </div>
 
 <div class="form-group">
   <%= f.label :description, :class => 'control-label' %>
-  <%= f.text_area :description, :class => 'form-control' %>
+  <%= f.text_area :description, :class => 'form-control', :required => true %>
 
 </div>
 
 <div class="form-group">
    <%= f.label  :price, :class => 'control-label' %>
-   <%= f.number_field  :price, :class => 'form-control' %>
+   <%= f.number_field  :price, :class => 'form-control', :required => true%>
 </div>
 
 
 <div class="form-group">
   <%= f.label :city %>
-   <%= collection_select(:post, :city_id, City.all, :id, :name, {:prompt=>true},{class: "form-control"}) %>
+   <%= collection_select(:post, :city_id, City.all, :id, :name, {:prompt=>true},{class: "form-control", :required => true}) %>
 </div>
 
 <div class="form-group">
   <%= f.label :phone, :class => 'control-label' %>
-   <%= f.telephone_field :phone, :class => 'form-control' %>
+   <%= f.telephone_field :phone, :class => 'form-control', :required => true %>
 </div>
 
 <div class="form-group">

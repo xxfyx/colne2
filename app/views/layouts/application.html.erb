@@ -8,12 +8,15 @@
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag "application", :media => "all" %>
-
+   <%= javascript_include_tag "application" %>
 
   </head>
   <body>
-       
-<%= render 'layouts/navbar' %>
+      <%= render 'partials/navbar' %>
+       <% if current_page?(root_path) || current_page?(search_posts_path)%> 
+       <%# ----- this condition is to show the search bar partial only in index and search pages ----- %>
+          <%= render 'partials/searchbar' %>
+      <% end %>
 
     <div class="container">
       <div class="row">
@@ -21,17 +24,7 @@
           <%= bootstrap_flash %>
           <%= yield %>
         </div>
-        <div class="col-lg-3">
-          <div class="well sidebar-nav">
-            <h3>Sidebar</h3>
-            <ul class="nav nav-list">
-              <li class="nav-header">Sidebar</li>
-              <li><%= link_to "Link1", "#"  %></li>
-              <li><%= link_to "Link2", "#"  %></li>
-              <li><%= link_to "Link3", "#"  %></li>
-            </ul>
-          </div><!--/.well -->
-        </div><!--/span-->
+<%= render 'partials/sidebar'%>
       </div><!--/row-->
 
       <footer>

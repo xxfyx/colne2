@@ -118,4 +118,46 @@ a:hover, a:focus {
    .Cindicators{ 
    display: none;
   }
+  .sidebar{
+        display: none;
+  }
+}
+.pagination > li > a:hover, .pagination > li > a:focus, .pagination > li > span:hover, .pagination > li > span:focus {
+    z-index: 2;
+    color: #ffffff;
+    background-color: #f44336;
+    border-color: #f44336;
+}
+.pagination > li > a, .pagination > li > span {
+    position: relative;
+    float: left;
+    padding: 6px 12px;
+    line-height: 1.42857143;
+    text-decoration: none;
+    color: #000000;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    margin-left: -1px;
+}
+.pagination > .active > span, .pagination > .active > span:hover, .pagination > .active > span:focus {
+    z-index: 3;
+    color: #fff;
+    background-color: #F44336;
+    border-color: #F44336;
+    cursor: default;
+}
+.sheader{
+    background-color: rgb(244, 67, 54);
+    color: white;
+    text-align: center;
+}
+.container-fluid {
+    padding-right: 0px;
+    padding-left: 0px;
+}
+.searchbars {
+    background-color: #ff8981;
+    text-align: center;
+    margin-bottom: 30px;
+
 }

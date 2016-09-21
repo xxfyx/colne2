@@ -20,7 +20,7 @@
 
 			            <div class="btn-group" role="group" aria-label="...">
 				  <%= link_to edit_post_path(post) do%>
-				  <button type="button" class="btn btn-custom">Edit <%= fa_icon "pencil"%></button>
+				  <button type="button" class="btn btn-primary">Edit <%= fa_icon "pencil"%></button>
 				  <%end%>
 				  <%= link_to post,  method: :delete, data: { confirm: 'Click Sure! to Delete this item', commit: 'Sure!',cancel: 'cancel'} do %>
 				 <button type="button" class="btn btn-danger">Delete <%= fa_icon "trash-o" %></button>

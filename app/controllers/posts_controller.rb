@@ -6,13 +6,20 @@ class PostsController < ApplicationController
 
   end
   
+
+
+
   def search
-    query = params[:search].presence || "*"
-        @posts = Post.search(
-                               query,{
-                               order: {created_at: :desc},
-                               page: params[:page], per_page: 5})
+
+ search = params[:search].presence || "*"
+    conditions = {}
+    conditions[:category_id] = params[:category_id] if params[:category_id].present?
+    conditions[:city_id] = params[:city_id] if params[:city_id].present?
+
+    @posts = Post.search search, where: conditions, aggs: [:state,:city]
   end
+
+
 
   def show  
    @PostOwner = User.find_by_id(@post.user_id)

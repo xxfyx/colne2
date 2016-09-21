@@ -8,10 +8,11 @@ class Post < ApplicationRecord
 	accepts_nested_attributes_for :pictures, allow_destroy: true
 
 	def search_data
+		#------------------> rake searchkick:reindex CLASS=Post  <------------------
 		  attributes.merge(
 		    category_name: category(&:name),
 		    city_name: city(&:name)
 		    )
-            end
+        end
 
 end
