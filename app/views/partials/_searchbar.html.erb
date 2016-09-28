@@ -1,14 +1,14 @@
 <div class="searchbar">
 
 	<div class="container-fluid sheader">
-	<div class="row">
+	
 		<h1>1er site d'annonces gratuites au Maroc</h1>
 		<h4>Trouver la bonne affaire parmi 1 021 347 annonces</h4>
-	</div>
+	
 	</div>
 
 	<div class="container-fluid searchbars">
-	<div class="row">
+
 		<%= form_tag search_posts_path, method: :get, class: "navbar-form", role: "search" do %>
 			<div class="form-group">
 				<%= text_field_tag :search, params[:search], class: "form-control" %>
@@ -21,7 +21,7 @@
 			</div>
 			<%= submit_tag "Search", name: nil, class: "btn btn-default" %>
 		<% end %>
-	</div>
+
 	</div>
 
 </div>

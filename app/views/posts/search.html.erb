@@ -2,17 +2,19 @@
 	
 <% @posts.each do |post| %>
 	<%= link_to post do %>
-		<div class="row padding-top-15">
+		<div class="row card-border">
 		            <div class="col-xs-6 col-md-3 imgethumbwarp">
+		            <div class="bd">
 		            <span class="badge"><%= post.pictures.count %></span>
+		            </div>
 		            <% if post.pictures.present? %>
 						<%= image_tag post.pictures.first.image.url(:thumb), class: "imgethumb" %>
 						<% else %>
 						<%= image_tag "default_image.png", class: "imgethumb"%> 
 			<% end %>
 		            </div>
-		            <div class="col-xs-6 col-md-9">
-		                <p class="lead pull-right"><%= post.price %> DH</p>
+		            <div class="col-xs-6 col-md-9 post-info">
+		                <p class="lead pull-right price"><%= post.price %> DH</p>
 		                <p class="lead"><%= post.title %></p>
 		                <p><%= post.city.name %></p>
 		            </div>

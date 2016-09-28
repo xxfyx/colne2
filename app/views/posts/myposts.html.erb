@@ -2,9 +2,10 @@
 <% if @myposts.present? %>
 	<% @myposts.each do |post| %>
 		<%= link_to post do %>
-			<div class="row padding-top-15">
+			<div class="row card-border">
 
-			            <div class="col-xs-6 col-md-3 imgethumbwarp"><span class="badge"><%= post.pictures.count %></span>
+			            <div class="col-xs-6 col-md-3 imgethumbwarp">
+			            <div class="bd"><span class="badge"><%= post.pictures.count %></span></div>
 			            <% if post.pictures.present? %>
 			                    <%= image_tag post.pictures.first.image.url(:thumb), class: "imgethumb" %> 
 			                <% else %>
@@ -12,18 +13,18 @@
 			            <% end %>
 			            </div>
 
-			            <div class="col-md-9">
-			                <p class="lead pull-right"><%= post.price %> DH</p>
+			            <div class="col-md-9 post-info">
+			                <p class="lead pull-right price"><%= post.price %> DH</p>
 			                <p class="lead"><%= post.title %></p>
 			                <p><%= post.city.name %></p>
 			            </div>
 
 			            <div class="btn-group" role="group" aria-label="...">
 				  <%= link_to edit_post_path(post) do%>
-				  <button type="button" class="btn btn-primary">Edit <%= fa_icon "pencil"%></button>
+				  <button type="button" class="btn btn-primary"><%= fa_icon "pencil"%></button>
 				  <%end%>
 				  <%= link_to post,  method: :delete, data: { confirm: 'Click Sure! to Delete this item', commit: 'Sure!',cancel: 'cancel'} do %>
-				 <button type="button" class="btn btn-danger">Delete <%= fa_icon "trash-o" %></button>
+				 <button type="button" class="btn btn-danger"><%= fa_icon "trash-o" %></button>
 				  <% end %>
 				</div>
 
