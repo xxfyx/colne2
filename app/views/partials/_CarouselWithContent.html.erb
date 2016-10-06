@@ -5,11 +5,11 @@
        <% @postpics.each_with_index do |pic, i| %>
            <% if i == 0 %>
           <div class="item active">
-            <%= image_tag pic.image.url(:medium) %>
+            <%= image_tag pic.image.url(:original) %>
           </div>
           <% else %>
           <div class="item">
-            <%= image_tag pic.image.url(:medium) %>
+            <%= image_tag pic.image.url(:original) %>
           </div>
         <% end %>
       <% end %>

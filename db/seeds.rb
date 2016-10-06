@@ -1,6 +1,7 @@
 City.destroy_all
 
 City.create! [
+  {name: "Toutes le Maroc"},
   {name: "Agadir"},
   {name: "Al Hocïema"},
   {name: "Béni Mellal"},
@@ -25,6 +26,7 @@ City.create! [
 Category.destroy_all
 
 Category.create! [
+  {name: "Toutes les catégories"},
   {name: "Téléphones"},
   {name: "Tablettes"},
   {name: "Ordinateurs portables"},

@@ -1,10 +1,10 @@
 <div class="searchbar">
 
 	<div class="container-fluid sheader">
-	
+
 		<h1>1er site d'annonces gratuites au Maroc</h1>
 		<h4>Trouver la bonne affaire parmi 1 021 347 annonces</h4>
-	
+
 	</div>
 
 	<div class="container-fluid searchbars">
@@ -14,10 +14,13 @@
 				<%= text_field_tag :search, params[:search], class: "form-control" %>
 			</div>
 			<div class="form-group">
-				<%= collection_select(@post, :category_id, Category.all, :id, :name, {:prompt=>"Toutes les catégories"},{class: "form-control"}) %>
+				<!-- <%= collection_select(@post, :category_id, Category.all, :id, :name, {:prompt=>"Toutes les catégories"},{class: "form-control"}) %> -->
+				<%= collection_select(@post, :category_id, Category.all, :id, :name, {:selected => params[:category_id], :prompt=>"Toutes les catégories"},{class: "form-control"}) %>
 			</div>
 			<div class="form-group">
-				<%= collection_select(@post, :city_id, City.all, :id, :name, {prompt: "Tout le Maroc" },{class: "form-control"}) %>
+				<%= collection_select(@post, :city_id, City.all, :id, :name, {:selected => params[:city_id], :prompt=>"Toutes le Maroc"},{class: "form-control"})%>
+				<!-- :prompt=>"Toutes le Maroc" -->
+
 			</div>
 			<%= submit_tag "Search", name: nil, class: "btn btn-default" %>
 		<% end %>
