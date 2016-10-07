@@ -13,7 +13,7 @@
   </head>
   <body>
       <%= render 'partials/navbar' %>
-       <% if current_page?(root_path) || current_page?(search_posts_path) || current_page?(posts_path)%> 
+       <% if current_page?(root_path) || current_page?(search_posts_path) || current_page?(posts_path)%>
        <%# ----- this condition is to show the search bar partial only in index and search pages ----- %>
           <%= render 'partials/searchbar' %>
       <% end %>
@@ -24,7 +24,9 @@
           <%= bootstrap_flash %>
           <%= yield %>
         </div>
-<%= render 'partials/sidebar'%>
+        <% if current_page?(search_posts_path) %>
+          <%= render 'partials/sidebar'%>
+        <% end %>
       </div><!--/row-->
 
       <footer>

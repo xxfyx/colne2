@@ -2,7 +2,7 @@ class PostsController < ApplicationController
   before_action :find_post, only: [:show, :edit, :update, :destroy]
   skip_before_action :authenticate_user!, only: [:index, :show, :search]
   def index
-     @posts = Post.all.order("created_at DESC").paginate(:page => params[:page], :per_page => 10)
+     @posts = Post.all.order("created_at DESC").paginate(:page => params[:page],  :per_page => 10)
   end
 
 def search
@@ -12,12 +12,11 @@ def search
       conditions[:category_id] = params[:category_id] if params[:category_id].present?
       conditions[:city_id] = params[:city_id] if params[:city_id].present?
 
-      @posts = Post.search search, where: conditions, aggs: [:state,:city]
+      @posts = Post.search search, where: conditions, aggs: [:category,:city], order: {updated_at: :desc}
     else
     redirect_to root_path
     end
 end
-
 
 
   def show

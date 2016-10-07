@@ -50,7 +50,7 @@ body {
 /*  --------- END second - navbar -------- */
 
 
-/*  --------- bord -------- */ 
+/*  --------- bord -------- */
  .bord {
     border-style: solid;
     border-color: #cfcfcf;
@@ -62,7 +62,7 @@ body {
     border-top: 1px solid #cccccc;
     padding: 8px 0;
 }
-.imgethumbwarp {  
+.imgethumbwarp {
     width: 135px;
     height: 90px;
     position: relative;
@@ -89,17 +89,17 @@ body {
 }
 /*  --------- END bord -------- */
 
-/*  --------- sidebar -------- */ 
+/*  --------- sidebar -------- */
 .side-img {
     margin-left: 20%;
-} 
+}
 
 .sidebar-nav{
     box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
 }
 /*  --------- END sidebar -------- */
 
-/*  --------- post -------- */ 
+/*  --------- post -------- */
 
 .badge {
     position: absolute;
@@ -162,7 +162,7 @@ body {
     border: 2px solid #5a5a5a;
     padding-top: 5px;
 }
-.Cindicators{ 
+.Cindicators{
    padding-top: 120px;
 }
 .carousel-control {
@@ -179,7 +179,7 @@ body {
     text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
     background-color: transparent;
 }
-   .carousel-inner{ 
+   .carousel-inner{
     height: 450px;
     display: flex;
 }
@@ -189,7 +189,7 @@ body {
 }
 /*  --------- END show page -------- */
 
-/*  --------- pagination -------- */ 
+/*  --------- pagination -------- */
 .pagination > li > a:hover, .pagination > li > a:focus, .pagination > li > span:hover, .pagination > li > span:focus {
     z-index: 2;
     color: #ffffff;
@@ -217,17 +217,38 @@ body {
 }
 /*  --------- END pagination -------- */
 
-
+/* ----------- Suggestions ----------*/
+.imgesuggestions {
+    width: 135px;
+    height: 90px;
+    position: relative;
+    padding: 2px;
+    border: 1px solid #cfcfcf;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    margin-left: 55px;
+}
+.picesuggestions {
+    left: 0px;
+    position: relative;
+}
+.titlesuggestions{
+    font-weight: bold;
+    font-size: 16px;
+    margin-bottom: 0;
+}
+/* -----------  END Suggestions ----------*/
 
 /* Small devices (tablets, 768px and up) */
-@media (max-width: 768px) { 
+@media (max-width: 768px) {
     .carousel-inner {
         height: 100%;
         display: flex;
     }
    .Cindicators {
     display: none;
-   } 
+   }
    .sheader {
     display: none;
    }
@@ -245,7 +266,7 @@ body {
     text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
     background-color: transparent;
     }
-    
+
     .navbar-nav {
     margin: 7.5px -15px;
     text-align: center;
