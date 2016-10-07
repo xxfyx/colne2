@@ -13,7 +13,7 @@ def search
       conditions[:category_id] = params[:category_id] if params[:category_id].present?
       conditions[:city_id] = params[:city_id] if params[:city_id].present?
 
-      @posts = Post.search search, where: conditions, aggs: [:category,:city], order: {updated_at: :desc}
+      @posts = Post.search search, where: conditions, aggs: [:category,:city], order: {updated_at: :desc}, per_page: 10, page: params[:page]
     else
     redirect_to root_path
     end
