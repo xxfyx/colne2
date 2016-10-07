@@ -21,6 +21,7 @@ gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 gem 'data-confirm-modal'
 gem 'font-awesome-rails'
+gem 'impressionist'
 
 group :development, :test do
   gem 'byebug', platform: :mri

@@ -1,4 +1,5 @@
 class Post < ApplicationRecord
+	is_impressionable
 	searchkick
 	belongs_to :user
 	belongs_to :category

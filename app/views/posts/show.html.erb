@@ -1,18 +1,33 @@
-<div class="clearfix">
-    <h2  class="col-md-6"><%= @post.title %></h2>
-</div>
-
-<%if @postpics.present? %>
- <%= render 'partials/CarouselWithContent' %>
- <% else %>
- <h4 class="text-center">no images provided from the post owner</h4>
-<% end %>
-  <div class="col-md-6">
-    <h2><%= @post.price %> DH</h2>
-    <p ><%= @post.description %></p>
+<div class="col-md-9">
+  <div class="clearfix">
+      <h2  class="col-md-6"><%= @post.title %></h2>
   </div>
-  <div class="col-md-6">
-    <h2><%= @PostOwner.name %> </h2>
-    <p ><%= @PostOwner.email %></p>
-    <p ><%= @post.phone %></p>
+
+    <%if @postpics.present? %>
+    <%= render 'partials/CarouselWithContent' %>
+    <% else %>
+    <h4 class="text-center">no images provided from the post owner</h4>
+   <% end %>
+    <div class="col-md-6">
+      <h2><%= @post.price %> DH</h2>
+      <p ><%= @post.description %></p>
+    </div>
+
+    <div class="col-md-6">
+      <h2><%= @PostOwner.name %> </h2>
+      <p ><%= @PostOwner.email %></p>
+      <p ><%= @post.phone %></p>
+    </div>
+  </div>
+
+  <div class="col-md-3 sidebar">
+    <div class="well sidebar-nav text-center">
+    <p class="vues">  <%= "Vues: #{@post.impressionist_count} total" %></p>
+    </div>
+    <div class="well sidebar-nav">
+    <h4 class="text-center"> <%= fa_icon "user "%>  <%= @PostOwner.name %> </h4>
+    <p class="sidedivider"></p>
+    <p> <%= fa_icon "clock-o "%>  <%= time_ago_in_words(@post.created_at) %></p>
+    <p> <%= fa_icon "map-marker "%>  <%= @post.city.name %> </p>
+    </div>
   </div>
