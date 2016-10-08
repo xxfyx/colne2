@@ -1,5 +1,5 @@
 class Post < ApplicationRecord
-	is_impressionable
+	is_impressionable counter_cache: true, column_name: :visits, :unique => :all
 	searchkick
 	belongs_to :user
 	belongs_to :category

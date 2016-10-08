@@ -66,10 +66,11 @@ ActiveRecord::Schema.define(version: 20161007122346) do
     t.integer  "price"
     t.string   "city_id"
     t.string   "phone"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
     t.integer  "user_id"
     t.integer  "category_id"
+    t.integer  "visits",      default: 0
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
   end
 
   create_table "users", force: :cascade do |t|

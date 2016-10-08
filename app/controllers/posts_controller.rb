@@ -1,9 +1,10 @@
 class PostsController < ApplicationController
   before_action :find_post, only: [:show, :edit, :update, :destroy]
   skip_before_action :authenticate_user!, only: [:index, :show, :search]
-  impressionist :actions=>[:show] , :unique => [:impressionable_type, :impressionable_id, :session_hash]
+  impressionist :actions=>[:show]
   def index
      @posts = Post.all.order("created_at DESC").paginate(:page => params[:page],  :per_page => 10)
+     @most_viued_posts = Post.order(visits: :DESC).limit(4)
   end
 
 def search
