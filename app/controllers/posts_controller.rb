@@ -4,7 +4,7 @@ class PostsController < ApplicationController
   impressionist :actions=>[:show]
   def index
      @posts = Post.all.order("created_at DESC").paginate(:page => params[:page],  :per_page => 10)
-     @most_viued_posts = Post.order(visits: :DESC).limit(4)
+     @most_viued_posts = Post.order(visits: :DESC).limit(5)
   end
 
 def search

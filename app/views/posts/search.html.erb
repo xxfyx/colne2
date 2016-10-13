@@ -1,13 +1,13 @@
-<div class=" col-lg-9">
-	<div class="col-lg-12 bord">
+<div class=" col-md-9">
+	<div class="col-md-12 bord">
 
 <% @posts.each do |post| %>
 	<%= link_to post do %>
 		<div class="row card-border">
-			<div class="col-xs-2  col-md-2 timeholder">
+			<div class="col-md-2 timeholder">
 			<p class="time"> <%= fa_icon "clock-o "%>  <%= time_ago_in_words(post.created_at) %></p>
 			</div>
-		            <div class="col-xs-6 col-md-3 imgethumbwarp">
+		            <div class="col-md-3 imgethumbwarp">
 		            <div class="bd">
 		            <span class="badge"><%= post.pictures.count %></span>
 		            </div>
@@ -17,7 +17,7 @@
 						<%= image_tag "default_image.png", class: "imgethumb"%>
 			<% end %>
 		            </div>
-		            <div class="col-xs-6 col-md-6 post-info">
+		            <div class="col-md-6 post-info">
 		                <p class="lead pull-right price"><%= post.price %> DH</p>
 		                <p class="mdfont"><%= post.title %></p>
 		                <p><%= post.city.name %></p>
@@ -28,4 +28,29 @@
 </div>
 
 <%= render 'partials/paginate' %>
+</div>
+
+<div class="col-lg-3 sidebar">
+  <div class="well sidebar-nav">
+    <% @posts.sort_by(&:visits).reverse!.take(3).each do |post| %>
+    	<%= link_to post do %>
+    		<div class="row">
+    		            <div class="col-md-12 imgesuggestions">
+    		            <!-- <div class="bd">
+    		            <span class="badge"><%= post.pictures.count %></span>
+    		            </div> -->
+    		            <% if post.pictures.present? %>
+    						<%= image_tag post.pictures.first.image.url(:thumb), class: "imgethumb" %>
+    						<% else %>
+    						<%= image_tag "default_image.png", class: "imgethumb"%>
+    			        <% end %>
+    		            </div>
+    		            <div class="col-md-12 post-info">
+    		                <p class="titlesuggestions text-center"><%= post.title %></p>
+    		                <p class="picesuggestions text-center"><%= post.price %> DH</p>
+    		            </div>
+    		</div>
+      <% end %>
+    <% end %>
+  </div>
 </div>
